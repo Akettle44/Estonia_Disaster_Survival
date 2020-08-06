@@ -6,4 +6,4 @@ Although tragic, there exists a question of what led those 137 to survive. Did i
 Exploring and Cleaning the Data:
 
 
-![Age vs Survival Correlation](~/projects/python/ml/Age.png)
+![Age vs Survival Correlation](Age.png)
