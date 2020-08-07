@@ -6,13 +6,13 @@ Although tragic, there exists a question of what led those 137 to survive. Did i
 Exploring and Cleaning the Data:
 
 Age vs Survival Correlation:
-![Age vs Survival Correlation](data/Age.png)
+![Age vs Survival Correlation](image/Age.png)
 
 Country vs Survival Correlation:
-![Country vs Survival Correlation](data/country_survival.png)
+![Country vs Survival Correlation](image/country_survival.png)
 
 Men (0) vs Women (1) Survival Correlation:
-![Men vs Women Survival Correlation](data/Men_0_Women_1.png)
+![Men vs Women Survival Correlation](image/Men_0_Women_1.png)
 
 Passenger vs Crew Survival Correlation:
-![Passenger vs Crew Survival Correlation](data/Passenger_Crew.png)
+![Passenger vs Crew Survival Correlation](image/Passenger_Crew.png)
