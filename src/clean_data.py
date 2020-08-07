@@ -14,7 +14,7 @@ plt.show()
 '''
 
 #Cleaning data
-df = pd.read_csv('data/estonia-passenger-list.csv') #read in csv
+df = pd.read_csv('../data/estonia-passenger-list.csv') #read in csv
 df.drop(['Firstname', 'Lastname', 'PassengerId', 'Country'], axis=1, inplace=True) #Remove identifying data and country because there didn't seem to be any statistical relevance
 df['Sex'].replace(['M', 'F'], [0,1], inplace=True)      #enumerate sex column
 df['Category'].replace(['P', 'C'], [0,1], inplace=True) #enumerate passenger column P=passengers (0), C=Crew (1)
@@ -26,10 +26,10 @@ f_train, f_test, l_train, l_test = train_test_split(features, labels, test_size=
 f_val, f_test, l_val, l_test = train_test_split(features, labels, test_size=.5, random_state=42)   #Validation and testing take up 20% each
 
 #Saving split data to a file so comparison can be recreated
-f_train.to_csv('data/f_training.csv', index=False)
-l_train.to_csv('data/l_training.csv', index=False, header=False)
-f_val.to_csv('data/f_val.csv', index=False)
-l_val.to_csv('data/l_val.csv', index=False, header=False)
-f_test.to_csv('data/f_test.csv', index=False)
-l_test.to_csv('data/l_test.csv', index=False, header=False)
+f_train.to_csv('../data/f_training.csv', index=False)
+l_train.to_csv('../data/l_training.csv', index=False, header=False)
+f_val.to_csv('../data/f_val.csv', index=False)
+l_val.to_csv('../data/l_val.csv', index=False, header=False)
+f_test.to_csv('../data/f_test.csv', index=False)
+l_test.to_csv('../data/l_test.csv', index=False, header=False)
 
