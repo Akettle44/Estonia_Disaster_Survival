@@ -5,9 +5,9 @@ Although tragic, there exists a question of what led those 137 to survive. Did i
 
 **Exploring and Cleaning the Data:**
 
-Age vs Survival Correlation:
+**Age vs Survival Correlation:
 
-The age vs survival plot seems to suggest that children are more likely to survive. However outside of that, there doesn't seem to be any distinct correlations.  
+The age vs survival plot seems to suggest that children are more likely to survive. However outside of that, there don't seem to be any distinct correlations.  
 ![Age vs Survival Correlation](images/Age.png)
 
 **Country vs Survival Correlation:**
