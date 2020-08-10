@@ -11,6 +11,7 @@ df['Survived'] #13% survival rate, yoinks!
 df.describe()
 a = sns.catplot(x='Sex', y='Survived', kind="point", data=df)
 plt.show()
+df.groupby('Category').mean()
 '''
 
 #Cleaning data
@@ -18,8 +19,6 @@ df = pd.read_csv("data/estonia-passenger-list.csv") #read in csv
 df.drop(['Firstname', 'Lastname', 'PassengerId', 'Country'], axis=1, inplace=True) #Remove identifying data and country because there didn't seem to be any statistical relevance
 df['Sex'].replace(['M', 'F'], [0,1], inplace=True)      #enumerate sex column
 df['Category'].replace(['P', 'C'], [0,1], inplace=True) #enumerate passenger column P=passengers (0), C=Crew (1)
-
-df.groupby('Category').mean()
 
 #Splitting Data into training, validation, and testing
 features = df.drop('Survived', axis=1) 

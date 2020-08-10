@@ -11,6 +11,8 @@ from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier,
 from sklearn.neural_network import MLPClassifier, MLPRegressor
 from sklearn.svm import SVC, SVR
 from sklearn.tree import DecisionTreeClassifier
+from sklearn.utils import class_weight
+from collections import Counter
 
 #Setting up feauture and label headers
 feature_headers = ['Sex','Age','Category']
@@ -19,6 +21,8 @@ label_headers = 'Survived'
 #Reading in split data
 f_train = pd.read_csv('data/f_training.csv')
 l_train = pd.read_csv('data/l_training.csv', header=None)
+class_weights = class_weight.compute_class_weight(class_weight='balanced', classes=(np.unique(l_train)), y=l_train) #computes the class weight
+class_weights = {0:3.9013, 1:.5735}
 
 #Algorithm names and functions
 lrg = LogisticRegression()
@@ -47,7 +51,7 @@ def train_algo(algo, parameters):
 	sys.stdout = results
 	algo_results(cv) 
 	pkl_file=open('pkl/{}pickle.pkl'.format(algo), 'wb')
-	pkl.dump(cv, pkl_file)
+	pkl.dump(cv.best_estimator_, pkl_file)
 	results.close()
 	pkl_file.close()
 
@@ -71,7 +75,8 @@ train_algo('mp', parameters)
 #Random Forest
 n_estimators = [1, 2, 4, 6, 8, 10]
 max_depth = [2, 4, 6, 10, 16, 22, 28, 36]
-parameters={'n_estimators':n_estimators, 'max_depth':max_depth}
+class_weight_rf = [class_weights]
+parameters={'n_estimators':n_estimators, 'max_depth':max_depth, 'class_weight':class_weight_rf}
 train_algo('rf', parameters)
 
 #Decision Tree classifier
