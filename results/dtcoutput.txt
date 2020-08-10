@@ -1,11 +1,7 @@
-Best parameters: {'max_depth': 6}
-0.852 (+/-0.049) for {'max_depth': 6}
-0.848 (+/-0.052) for {'max_depth': 10}
-0.843 (+/-0.055) for {'max_depth': 16}
-0.843 (+/-0.055) for {'max_depth': 22}
-0.843 (+/-0.055) for {'max_depth': 28}
-0.843 (+/-0.055) for {'max_depth': 36}
-GridSearchCV(cv=10, estimator=RandomForestClassifier(),
-             param_grid={'max_depth': [2, 4, 6, 10, 16, 22, 28, 36],
-                         'n_estimators': [1, 2, 4, 6, 8, 10]},
-             scoring='accuracy')
+Best parameters: {'class_weight': {0: 3.9013, 1: 0.5735}, 'max_depth': 16}
+0.865 (+/-0.025) for {'class_weight': {0: 3.9013, 1: 0.5735}, 'max_depth': 6}
+0.867 (+/-0.027) for {'class_weight': {0: 3.9013, 1: 0.5735}, 'max_depth': 10}
+0.867 (+/-0.043) for {'class_weight': {0: 3.9013, 1: 0.5735}, 'max_depth': 16}
+0.867 (+/-0.043) for {'class_weight': {0: 3.9013, 1: 0.5735}, 'max_depth': 22}
+0.867 (+/-0.043) for {'class_weight': {0: 3.9013, 1: 0.5735}, 'max_depth': 28}
+0.867 (+/-0.043) for {'class_weight': {0: 3.9013, 1: 0.5735}, 'max_depth': 36}

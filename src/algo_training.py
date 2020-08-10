@@ -21,8 +21,9 @@ label_headers = 'Survived'
 #Reading in split data
 f_train = pd.read_csv('data/f_training.csv')
 l_train = pd.read_csv('data/l_training.csv', header=None)
-class_weights = class_weight.compute_class_weight(class_weight='balanced', classes=(np.unique(l_train)), y=l_train) #computes the class weight
+#class_weights = class_weight.compute_class_weight(class_weight='balanced', classes=(np.unique(l_train)), y=l_train) #computes the class weight
 class_weights = {0:3.9013, 1:.5735}
+class_wght = [class_weights]
 
 #Algorithm names and functions
 lrg = LogisticRegression()
@@ -57,12 +58,12 @@ def train_algo(algo, parameters):
 
 #Fitting Logistic regression alogrithm
 c_list = [0.01, 0.1, 1, 10, 100] #C = .01 and C performed best (.872)-> High regularization 
-parameters = { 'C': c_list }
+parameters = { 'C':c_list, 'class_weight':class_wght}
 train_algo('lrg', parameters)
 
 #Fitting support vector machine alogrithm
 c_list = [0.01, 0.1, 1, 10, 100] 
-parameters = { 'C': c_list }
+parameters = { 'C':c_list, 'class_weight':class_wght}
 train_algo('sv', parameters)
 
 #Fitting Multilayer Perceptron
@@ -75,14 +76,13 @@ train_algo('mp', parameters)
 #Random Forest
 n_estimators = [1, 2, 4, 6, 8, 10]
 max_depth = [2, 4, 6, 10, 16, 22, 28, 36]
-class_weight_rf = [class_weights]
-parameters={'n_estimators':n_estimators, 'max_depth':max_depth, 'class_weight':class_weight_rf}
+parameters={'n_estimators':n_estimators, 'max_depth':max_depth, 'class_weight':class_wght}
 train_algo('rf', parameters)
 
 #Decision Tree classifier
 n_estimators = [1, 2, 4, 6, 8, 10]
 max_depth = [6, 10, 16, 22, 28, 36]
-parameters={'max_depth':max_depth}
+parameters={'max_depth':max_depth, 'class_weight':class_wght}
 train_algo('dtc', parameters)
 
 #Gradient Boosted Trees
