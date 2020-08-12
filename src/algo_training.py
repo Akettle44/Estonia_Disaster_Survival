@@ -88,7 +88,7 @@ train_algo('dtc', parameters)
 #Gradient Boosted Trees
 n_estimators = [1, 2, 4, 6, 8, 10]
 max_depth = [6, 10, 16, 22, 28, 36]
-learning_rate = [0.01, 0.1, 1, 10, 100, 1000]
+learning_rate = [0.01, 0.1, 1, 10, 100, 1000, 10000, 100000]
 parameters={'n_estimators':n_estimators, 'max_depth':max_depth, 'learning_rate':learning_rate}
 train_algo('boost', parameters)
 
