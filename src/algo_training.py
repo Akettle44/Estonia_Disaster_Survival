@@ -21,8 +21,8 @@ label_headers = 'Survived'
 #Reading in split data
 f_train = pd.read_csv('data/f_training.csv')
 l_train = pd.read_csv('data/l_training.csv', header=None)
-#class_weights = class_weight.compute_class_weight(class_weight='balanced', classes=(np.unique(l_train)), y=l_train) #computes the class weight
-class_weights = {0:3.9013, 1:.5735}
+#class_weights = class_weight.compute_class_weight(class_weight='balanced', classes=(np.unique(l_train)), y=l_train.values.ravel()) #computes the class weight
+class_weights = {1:0.580, 0:3.6094}
 class_wght = [class_weights]
 
 #Algorithm names and functions
@@ -46,7 +46,7 @@ def algo_results(results):
 
 ### Algorithm portion ###
 def train_algo(algo, parameters):
-	cv = GridSearchCV(estimator=algorithms[algo], param_grid=parameters, cv=10, scoring='accuracy', refit=True)#using crossfold validation of 10 
+	cv = GridSearchCV(estimator=algorithms[algo], param_grid=parameters, cv=3, scoring='recall', refit=True)#using crossfold validation of 10 
 	cv.fit(f_train, l_train.values.ravel())
 	results=open('results/{}output.txt'.format(algo), 'w')
 	sys.stdout = results
@@ -88,12 +88,12 @@ train_algo('dtc', parameters)
 #Gradient Boosted Trees
 n_estimators = [1, 2, 4, 6, 8, 10]
 max_depth = [6, 10, 16, 22, 28, 36]
-learning_rate = [0.01, 0.1, 1, 10, 100]
+learning_rate = [0.01, 0.1, 1, 10, 100, 1000]
 parameters={'n_estimators':n_estimators, 'max_depth':max_depth, 'learning_rate':learning_rate}
 train_algo('boost', parameters)
 
 #Histogram Gradient Boosting classifier
 max_depth = [6, 10, 16, 22, 28, 36]
-learning_rate = [0.001, 0.01, 0.1, 1, 10, 100]
+learning_rate = [0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000]
 parameters={'max_depth':max_depth, 'learning_rate':learning_rate}
 train_algo('hgb', parameters)
