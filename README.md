@@ -5,7 +5,10 @@ Although tragic, there exists a question of what led those 137 to survive. Did i
 
 **Exploring and Cleaning the Data:**
 
-**Age vs Survival Correlation:
+**Dataset Balance**
+Something interesting to note is that this binary label (outcome) is extremely unbalanced, with around 87% of the people not surviving. This proved to be a challenge full of compromises when picking a model. You may see other projects with this dataset achieve high accuracy with simple algorithms, like linear regression. This is because a simple tends to underfit based on my observations when using accuracy for scoring. For example, if the model choose that everyone died, it would be 87% accurate on this dataset. In order to truly understand the effectiveness of one's model, they need to take precision, recall, and Fscore into consideration as well.   
+
+**Age vs Survival Correlation:**
 
 The age vs survival plot seems to suggest that children are more likely to survive. However outside of that, there don't seem to be any distinct correlations.  
 ![Age vs Survival Correlation](images/Age.png)
