@@ -1,4 +1,4 @@
-Best parameters: {'activation': 'relu', 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive'}
+Best parameters: {'activation': 'logistic', 'hidden_layer_sizes': 5, 'learning_rate': 'constant'}
 0.000 (+/-0.000) for {'activation': 'logistic', 'hidden_layer_sizes': 5, 'learning_rate': 'constant'}
 0.000 (+/-0.000) for {'activation': 'logistic', 'hidden_layer_sizes': 5, 'learning_rate': 'invscaling'}
 0.000 (+/-0.000) for {'activation': 'logistic', 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive'}
@@ -36,8 +36,8 @@ Best parameters: {'activation': 'relu', 'hidden_layer_sizes': 5, 'learning_rate'
 0.000 (+/-0.000) for {'activation': 'tanh', 'hidden_layer_sizes': 200, 'learning_rate': 'invscaling'}
 0.000 (+/-0.000) for {'activation': 'tanh', 'hidden_layer_sizes': 200, 'learning_rate': 'adaptive'}
 0.000 (+/-0.000) for {'activation': 'relu', 'hidden_layer_sizes': 5, 'learning_rate': 'constant'}
-0.013 (+/-0.038) for {'activation': 'relu', 'hidden_layer_sizes': 5, 'learning_rate': 'invscaling'}
-0.333 (+/-0.943) for {'activation': 'relu', 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive'}
+0.000 (+/-0.000) for {'activation': 'relu', 'hidden_layer_sizes': 5, 'learning_rate': 'invscaling'}
+0.000 (+/-0.000) for {'activation': 'relu', 'hidden_layer_sizes': 5, 'learning_rate': 'adaptive'}
 0.000 (+/-0.000) for {'activation': 'relu', 'hidden_layer_sizes': 10, 'learning_rate': 'constant'}
 0.000 (+/-0.000) for {'activation': 'relu', 'hidden_layer_sizes': 10, 'learning_rate': 'invscaling'}
 0.000 (+/-0.000) for {'activation': 'relu', 'hidden_layer_sizes': 10, 'learning_rate': 'adaptive'}

@@ -1,7 +1,7 @@
-Best parameters: {'class_weight': {1: 0.58, 0: 3.6094}, 'max_depth': 16}
-0.000 (+/-0.000) for {'class_weight': {1: 0.58, 0: 3.6094}, 'max_depth': 6}
-0.040 (+/-0.113) for {'class_weight': {1: 0.58, 0: 3.6094}, 'max_depth': 10}
-0.066 (+/-0.136) for {'class_weight': {1: 0.58, 0: 3.6094}, 'max_depth': 16}
-0.066 (+/-0.136) for {'class_weight': {1: 0.58, 0: 3.6094}, 'max_depth': 22}
-0.066 (+/-0.136) for {'class_weight': {1: 0.58, 0: 3.6094}, 'max_depth': 28}
-0.066 (+/-0.136) for {'class_weight': {1: 0.58, 0: 3.6094}, 'max_depth': 36}
+Best parameters: {'class_weight': {1: 0.139, 0: 0.861}, 'max_depth': 16}
+0.000 (+/-0.000) for {'class_weight': {1: 0.139, 0: 0.861}, 'max_depth': 6}
+0.117 (+/-0.291) for {'class_weight': {1: 0.139, 0: 0.861}, 'max_depth': 10}
+0.301 (+/-0.116) for {'class_weight': {1: 0.139, 0: 0.861}, 'max_depth': 16}
+0.301 (+/-0.116) for {'class_weight': {1: 0.139, 0: 0.861}, 'max_depth': 22}
+0.301 (+/-0.116) for {'class_weight': {1: 0.139, 0: 0.861}, 'max_depth': 28}
+0.301 (+/-0.116) for {'class_weight': {1: 0.139, 0: 0.861}, 'max_depth': 36}

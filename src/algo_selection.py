@@ -2,7 +2,7 @@ import pickle as pkl
 import pandas as pd
 import numpy as np
 import sys
-from sklearn.metrics import accuracy_score, precision_score, recall_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from collections import Counter
 
 #Choosing the best algorithm
@@ -26,3 +26,13 @@ for name in algo_names:
     print(accuracy_score(l_val, prediction))
     print(precision_score(l_val, prediction, average='binary'))
     print(recall_score(l_val, prediction))
+    print(f1_score(l_val, prediction))
+
+#final test
+for name in algo_names:
+    print("Score for {}".format(name)) #assigning test score
+    prediction = algo_pkl[name].predict(f_test)
+    print(accuracy_score(l_test, prediction))
+    print(precision_score(l_test, prediction, average='binary'))
+    print(recall_score(l_test, prediction))
+    print(f1_score(l_test, prediction))
