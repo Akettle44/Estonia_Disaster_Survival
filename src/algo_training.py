@@ -47,7 +47,7 @@ def algo_results(results):
 
 ### Algorithm portion ###
 def train_algo(algo, parameters):
-	cv = GridSearchCV(estimator=algorithms[algo], param_grid=parameters, cv=5, scoring='precision', refit=True)
+	cv = GridSearchCV(estimator=algorithms[algo], param_grid=parameters, cv=5, scoring='f1', refit=True)
 	cv.fit(f_train, l_train.values.ravel())
 	results=open('results/{}output.txt'.format(algo), 'w')
 	sys.stdout = results

@@ -2,7 +2,9 @@ import pickle as pkl
 import pandas as pd
 import numpy as np
 import sys
+import matplotlib.pyplot as plt
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from sklearn.metrics import precision_recall_curve, plot_precision_recall_curve, average_precision_score
 from collections import Counter
 
 #Choosing the best algorithm
@@ -19,14 +21,25 @@ for name in algo_names: #get pkl objects
 	algo_pkl[name] = pkl.load(pklfile)
 	pklfile.close()
 
+pred = []
+real = []
 #Testing best scores on validation set
 for name in algo_names:
-    print("Score for {}".format(name)) #assigning test score
+    #print("Score for {}".format(name)) #assigning test score
     prediction = algo_pkl[name].predict(f_val)
-    print(accuracy_score(l_val, prediction))
-    print(precision_score(l_val, prediction, average='binary'))
-    print(recall_score(l_val, prediction))
-    print(f1_score(l_val, prediction))
+    avg_pre = average_precision_score(l_val, prediction)
+    pred.append(avg_pre)
+    real.append(l_val)
+    # print(accuracy_score(l_val, prediction))
+    #print(precision_score(l_val, prediction, average='binary'))
+    #print(recall_score(l_val, prediction))
+    #print(f1_score(l_val, prediction))
+    
+prec, rec, thresh = precision_recall_curve(real, pred)
+plt.plot(rc)
+plt.xlabel('Recall')
+plt.ylabel('Precision')
+plt.show()
 
 #final test
 for name in algo_names:
