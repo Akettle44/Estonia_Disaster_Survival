@@ -57,6 +57,15 @@ def train_algo(algo, parameters):
 	results.close()
 	pkl_file.close()
 
+def plot_pr_curve(precision, recall, models):
+	for name in models:
+		plt.plot(precision[name], recall[name], label=name)
+	plt.title = "Precision Recall Curve"
+	plt.xlabel = "Recall"		
+	plt.ylabel = "Precision"
+	plt.legend(loc="best")
+	plt.show()
+
 #Fitting Logistic regression alogrithm
 c_list = [0.01, 0.1, 1, 10, 100] #C = .01 and C performed best (.872)-> High regularization 
 parameters = { 'C':c_list, 'class_weight':class_wght}
