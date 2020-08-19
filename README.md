@@ -37,5 +37,21 @@ Since part of the goal of this project was to learn about new algorithms, I deci
 
 One of the most difficult decisions was how to score the models. Accuracy would be the obvious choice, however it does not tell the whole story. As mentioned in the Dataset Balance section, scoring based on accuracy alone is not ideal because it causes a very simple model to be successful without actually having to make any predictions. In particular, I saw more complex models favoring shallow trees, suggesting that the models thought that the correlations could be predicted with a very simple way. It turns out that the precision associated with these models was quite poor.
 
-This left me questioning what exactly I should use to evaluate a model's success. I trained using precision, recall, and F1-score. When training for recall, I was able to achieve high recall at the expense of precision. This would have been fine, except I found that models that performed vsery well in recall tended to score low in accuracy. I believe that this is due to the inbalance in the dataset as well. Recall is equivalent to TP / TP + FN, where TP is true positive and FN is false negative. The likelihood of a false negative occuring is low becasue the data is already heavily skewed in a negative manner. Over the course of training, tuning to the least amount of false negatives drove up the likelihood of a false positive because the model wasn't being punished for making false positive predictions. Keeping in mind that precision is defined as a TP / TP + FP, where TP is true positive and FN is false negative, it makes sense that a model tuned for high recall would have high precision,
+This left me questioning what exactly I should use to evaluate a model's success. I trained using precision, recall, and F1-score. When training for recall, I was able to achieve high recall at the expense of precision. This would have been fine, except I found that models that performed very well in recall tended to score low in accuracy. I believe that this is due to the inbalance in the dataset as well. Recall is equivalent to TP / TP + FN, where TP is true positive and FN is false negative. The likelihood of a false negative occuring is low becasue the data is already heavily skewed in a negative manner. Over the course of training, tuning to the least amount of false negatives drove up the likelihood of a false positive because the model wasn't being punished for making false positive predictions. Keeping in mind that precision is defined as a TP / TP + FP, where TP is true positive and FN is false negative, it makes sense that a model tuned for high recall would have high precision.
 
+**Visualizing PR Curves**
+To visualize some of the thoughts I have discussed, I created precision-recall graphs based on models that were tuned for accuracy, precsision, and F-Score. Each of them is listed below with relevant commentary. On the whole, logistic regression, SVM, and mp were unable to make relevant predictions so I will not be discussing them. 
+
+**PR Graph when training for accuracy**
+
+Across all of the algorithms, training for accuracy provided the smallest values for both precision and recall. As I mentioned earlier, I believe that this is due to the model underfitting across the board.  
+![PR graph when trained for accuracy](images/PR_Graph_accuracy_training.png)
+
+**PR Graph when training for precision**
+![PR graph when trained for precision](images/PR_Graph_Precision_training.png)
+
+**PR Graph when training for F-Score**
+
+Tuning for F-score optimized the models better than any of the other training methods. This came as no surprise because I was looking for a balance between recall and precision in my final model choice. One interesting thing to note is that gradient boosted trees seemed to perform quite well.
+Because of the inbalance in the dataset, GBT greatly benefits from its ability to learn from its mistakes when classifying data. Since the best model for this dataset seems to be a medium level complexity, the shallow tree depth did not seem to inhibit the model too much.
+![PR graph when trained for F-Score](images/PR_Graph_F1_Training.png)
