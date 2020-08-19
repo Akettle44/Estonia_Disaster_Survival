@@ -2,8 +2,8 @@ import pickle as pkl
 import pandas as pd
 import numpy as np
 import sys
-import algo_training #getting module not found error, fix tomorrow
 import matplotlib.pyplot as plt
+from algo_training import plot_pr_curve 
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from sklearn.metrics import precision_recall_curve, plot_precision_recall_curve, average_precision_score
 from collections import Counter
@@ -50,7 +50,7 @@ prec_simple, recall_simple = simple_algo_analysis()
 prec_complex, recall_complex = complex_algo_analysis()
 prec_simple.update(prec_complex)
 recall_simple.update(recall_complex)
-algo_training.plot_pr_curve(prec_simple, recall_simple, algo_names)
+plot_pr_curve(prec_simple, recall_simple, algo_names)
 
 #final test
 for name in algo_names:

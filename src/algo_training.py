@@ -60,50 +60,53 @@ def train_algo(algo, parameters):
 def plot_pr_curve(precision, recall, models):
 	for name in models:
 		plt.plot(precision[name], recall[name], label=name)
-	plt.title = "Precision Recall Curve"
-	plt.xlabel = "Recall"		
-	plt.ylabel = "Precision"
+	plt.title("Precision Recall Curve")
+	plt.xlabel("Recall")		
+	plt.ylabel("Precision")
 	plt.legend(loc="best")
 	plt.show()
 
-#Fitting Logistic regression alogrithm
-c_list = [0.01, 0.1, 1, 10, 100] #C = .01 and C performed best (.872)-> High regularization 
-parameters = { 'C':c_list, 'class_weight':class_wght}
-train_algo('lrg', parameters)
+def train_models():
+	#Fitting Logistic regression alogrithm
+	c_list = [0.01, 0.1, 1, 10, 100] #C = .01 and C performed best (.872)-> High regularization 
+	parameters = { 'C':c_list, 'class_weight':class_wght}
+	train_algo('lrg', parameters)
 
-#Fitting support vector machine alogrithm
-c_list = [0.01, 0.1, 1, 10, 100] 
-parameters = { 'C':c_list, 'class_weight':class_wght}
-train_algo('sv', parameters)
+	#Fitting support vector machine alogrithm
+	c_list = [0.01, 0.1, 1, 10, 100] 
+	parameters = { 'C':c_list, 'class_weight':class_wght}
+	train_algo('sv', parameters)
 
-#Fitting Multilayer Perceptron
-hidden_sz = [5, 10, 20, 50, 100, 200]
-activ_func = ['logistic', 'tanh', 'relu']
-learning_rte = ['constant', 'invscaling', 'adaptive']
-parameters = {'activation':activ_func, 'learning_rate':learning_rte, 'hidden_layer_sizes':hidden_sz}
-train_algo('mp', parameters)
+	#Fitting Multilayer Perceptron
+	hidden_sz = [5, 10, 20, 50, 100, 200]
+	activ_func = ['logistic', 'tanh', 'relu']
+	learning_rte = ['constant', 'invscaling', 'adaptive']
+	parameters = {'activation':activ_func, 'learning_rate':learning_rte, 'hidden_layer_sizes':hidden_sz}
+	train_algo('mp', parameters)
 
-#Random Forest
-n_estimators = [1, 2, 4, 6, 8, 10]
-max_depth = [2, 4, 6, 10, 16, 22, 28, 36]
-parameters={'n_estimators':n_estimators, 'max_depth':max_depth, 'class_weight':class_wght}
-train_algo('rf', parameters)
+	#Random Forest
+	n_estimators = [1, 2, 4, 6, 8, 10]
+	max_depth = [2, 4, 6, 10, 16, 22, 28, 36]
+	parameters={'n_estimators':n_estimators, 'max_depth':max_depth, 'class_weight':class_wght}
+	train_algo('rf', parameters)
 
-#Decision Tree classifier
-n_estimators = [1, 2, 4, 6, 8, 10]
-max_depth = [6, 10, 16, 22, 28, 36]
-parameters={'max_depth':max_depth, 'class_weight':class_wght}
-train_algo('dtc', parameters)
+	#Decision Tree classifier
+	n_estimators = [1, 2, 4, 6, 8, 10]
+	max_depth = [6, 10, 16, 22, 28, 36]
+	parameters={'max_depth':max_depth, 'class_weight':class_wght}
+	train_algo('dtc', parameters)
 
-#Gradient Boosted Trees
-n_estimators = [1, 2, 4, 6, 8, 10]
-max_depth = [6, 10, 16, 22, 28, 36]
-learning_rate = [0.01, 0.1, 1, 10, 100, 1000, 10000, 100000]
-parameters={'n_estimators':n_estimators, 'max_depth':max_depth, 'learning_rate':learning_rate}
-train_algo('boost', parameters)
+	#Gradient Boosted Trees
+	n_estimators = [1, 2, 4, 6, 8, 10]
+	max_depth = [6, 10, 16, 22, 28, 36]
+	learning_rate = [0.01, 0.1, 1, 10, 100, 1000, 10000, 100000]
+	parameters={'n_estimators':n_estimators, 'max_depth':max_depth, 'learning_rate':learning_rate}
+	train_algo('boost', parameters)
 
-#Histogram Gradient Boosting classifier
-max_depth = [6, 10, 16, 22, 28, 36]
-learning_rate = [0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000]
-parameters={'max_depth':max_depth, 'learning_rate':learning_rate}
-train_algo('hgb', parameters)
+	#Histogram Gradient Boosting classifier
+	max_depth = [6, 10, 16, 22, 28, 36]
+	learning_rate = [0.001, 0.01, 0.1, 1, 10, 100, 1000, 10000]
+	parameters={'max_depth':max_depth, 'learning_rate':learning_rate}
+	train_algo('hgb', parameters)
+
+train_models()
