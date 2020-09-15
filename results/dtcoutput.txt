@@ -1,7 +1,7 @@
 Best parameters: {'class_weight': {1: 0.139, 0: 0.861}, 'max_depth': 16}
-0.000 (+/-0.000) for {'class_weight': {1: 0.139, 0: 0.861}, 'max_depth': 6}
-0.042 (+/-0.103) for {'class_weight': {1: 0.139, 0: 0.861}, 'max_depth': 10}
-0.149 (+/-0.110) for {'class_weight': {1: 0.139, 0: 0.861}, 'max_depth': 16}
-0.149 (+/-0.110) for {'class_weight': {1: 0.139, 0: 0.861}, 'max_depth': 22}
-0.149 (+/-0.110) for {'class_weight': {1: 0.139, 0: 0.861}, 'max_depth': 28}
-0.149 (+/-0.110) for {'class_weight': {1: 0.139, 0: 0.861}, 'max_depth': 36}
+0.805 (+/-0.013) for {'class_weight': {1: 0.139, 0: 0.861}, 'max_depth': 6}
+0.805 (+/-0.020) for {'class_weight': {1: 0.139, 0: 0.861}, 'max_depth': 10}
+0.821 (+/-0.014) for {'class_weight': {1: 0.139, 0: 0.861}, 'max_depth': 16}
+0.821 (+/-0.014) for {'class_weight': {1: 0.139, 0: 0.861}, 'max_depth': 22}
+0.821 (+/-0.014) for {'class_weight': {1: 0.139, 0: 0.861}, 'max_depth': 28}
+0.821 (+/-0.014) for {'class_weight': {1: 0.139, 0: 0.861}, 'max_depth': 36}

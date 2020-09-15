@@ -52,6 +52,16 @@ prec_simple.update(prec_complex)
 recall_simple.update(recall_complex)
 plot_pr_curve(prec_simple, recall_simple, algo_names)
 
+#validation set
+for name in algo_names:
+    print("Score for {}".format(name)) #assigning test score
+    prediction = algo_pkl[name].predict(f_val)
+    print(accuracy_score(l_val, prediction))
+    print(precision_score(l_val, prediction, average='binary'))
+    print(recall_score(l_val, prediction))
+    print(f1_score(l_val, prediction))
+
+
 #final test
 for name in algo_names:
     print("Score for {}".format(name)) #assigning test score

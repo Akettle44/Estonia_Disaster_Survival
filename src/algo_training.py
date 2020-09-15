@@ -21,8 +21,6 @@ label_headers = 'Survived'
 #Reading in split data
 f_train = pd.read_csv('data/f_training.csv')
 l_train = pd.read_csv('data/l_training.csv', header=None)
-#class_weights = class_weight.compute_class_weight(class_weight='balanced', classes=(np.unique(l_train)), y=l_train.values.ravel()) #computes the class weight
-#class_weights = {1:0.580, 0:3.6094}
 class_weights = {1:0.139, 0:0.861}
 class_wght = [class_weights]
 
@@ -47,7 +45,7 @@ def algo_results(results):
 
 ### Algorithm portion ###
 def train_algo(algo, parameters):
-	cv = GridSearchCV(estimator=algorithms[algo], param_grid=parameters, cv=5, scoring='f1', refit=True)
+	cv = GridSearchCV(estimator=algorithms[algo], param_grid=parameters, cv=5, scoring='f1_weighted', refit=True)
 	cv.fit(f_train, l_train.values.ravel())
 	results=open('results/{}output.txt'.format(algo), 'w')
 	sys.stdout = results
@@ -109,4 +107,4 @@ def train_models():
 	parameters={'max_depth':max_depth, 'learning_rate':learning_rate}
 	train_algo('hgb', parameters)
 
-train_models()
+#train_models()
