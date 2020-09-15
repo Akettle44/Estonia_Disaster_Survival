@@ -53,7 +53,7 @@ Across all of the algorithms, training for accuracy provided the smallest values
 **PR Graph when training for F-Score**
 
 Tuning for weighted F1-score optimized the models better than any of the other training methods. This came as no surprise because I was looking for a balance between recall and precision in my final model choice, but still needed to address the weighting issue. When tuning the the models for pure F1-score, the results were drastically worse. As with most of the problems I ran into, this was due to the class weighting. 
-![PR graph when trained for F-Score](PR_Graph_weighted_f1.png)
+![PR graph when trained for F-Score](images/PR_Graph_weighted_f1.png)
 
 **Choosing the winner**
 
