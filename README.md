@@ -52,6 +52,24 @@ Across all of the algorithms, training for accuracy provided the smallest values
 
 **PR Graph when training for F-Score**
 
-Tuning for F-score optimized the models better than any of the other training methods. This came as no surprise because I was looking for a balance between recall and precision in my final model choice. One interesting thing to note is that gradient boosted trees seemed to perform quite well.
-Because of the inbalance in the dataset, GBT greatly benefits from its ability to learn from its mistakes when classifying data. Since the best model for this dataset seems to be a medium level complexity, the shallow tree depth did not seem to inhibit the model too much.
-![PR graph when trained for F-Score](images/PR_Graph_F1_Training.png)
+Tuning for weighted F1-score optimized the models better than any of the other training methods. This came as no surprise because I was looking for a balance between recall and precision in my final model choice, but still needed to address the weighting issue. When tuning the the models for pure F1-score, the results were drastically worse. As with most of the problems I ran into, this was due to the class weighting. 
+![PR graph when trained for F-Score](PR_Graph_weighted_f1.png)
+
+**Choosing the winner**
+
+Because of the inbalance in the dataset, GBT greatly benefited from its ability to learn from its mistakes when classifying data. Both of the gradient boosted models seemed to fare much better than other algorithms. Since the best model for this dataset seems to be a medium level complexity, the shallow tree depth did not seem to inhibit the performance of the model. 
+
+Concluding Scores, Gradient Boosted Trees:
+
+Validation: 
+  Accuracy: 89.9%
+  Precision: 81.3%
+  Recall: 21.6%
+  F1-Score: 34.2%
+  
+Test: 
+  Accuracy: 83.8%
+  Precision: 45.7%
+  Recall: 20.8%
+  F1-Score: 28.6%
+
